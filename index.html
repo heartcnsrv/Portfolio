@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heart Conserva — Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&family=Oxanium:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div id="loading-screen">
+    <div class="load-inner">
+      <div class="load-logo">HC</div>
+      <div class="load-subtitle">HEART CONSERVA · PORTFOLIO</div>
+      <div class="load-bar-wrap">
+        <div class="load-bar" id="loadBar"></div>
+        <div class="load-bar-glow" id="loadBarGlow"></div>
+      </div>
+      <div class="load-msg" id="loadMsg">Booting system...</div>
+    </div>
+  </div>
+
+  <!-- CURSOR -->
+  <div class="cur-ring" id="curRing"></div>
+  <div class="cur-dot"  id="curDot"></div>
+
+  <!-- BG CANVAS -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <a href="#home" class="nav-brand">
+      <span class="nb-bracket">[</span><span class="nb-name">HC</span><span class="nb-bracket">]</span>
+    </a>
+    <ul class="nav-list" id="navList">
+      <li><a href="#home"    class="nl-item">HOME</a></li>
+      <li><a href="#about"   class="nl-item">ABOUT</a></li>
+      <li><a href="#projects" class="nl-item">PROJECTS</a></li>
+      <li><a href="#art" class="nl-item">GRAPHICS &amp; ART</a></li>
+      <li><a href="#publications" class="nl-item">PUBLICATIONS</a></li>
+      <li><a href="#contact" class="nl-item">CONTACT</a></li>
+    </ul>
+    <button class="nav-resume-btn" id="navResumeBtn">VIEW RESUME</button>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ══════════════════ HERO ══════════════════ -->
+  <section id="home" class="s-hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-scanlines"></div>
+    <div class="hero-vignette"></div>
+
+    <div class="hero-left">
+      <div class="hero-eyebrow">// PLAYER_SELECT.EXE</div>
+      <h1 class="hero-name">
+        <span class="hn-first">HEART</span>
+        <span class="hn-last">CONSERVA</span>
+      </h1>
+      <div class="hero-role-line">
+        <span class="hrl-bracket">&lt;</span>
+        <span class="hrl-text" id="typeEl"></span>
+        <span class="hrl-cursor">|</span>
+        <span class="hrl-bracket">/&gt;</span>
+      </div>
+      <p class="hero-bio">
+      Fourth-Year CS Student & Software Developer<br>
+      Building practical systems, apps, and web solutions.
+      </p>
+
+      <div class="hero-stat-bar">
+        <div class="hsb-label">
+          <svg width="12" height="12" viewBox="0 0 12 12"><rect x="0" y="0" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="2" width="8" height="8" fill="currentColor" opacity="0.4"/></svg>
+      LVL 4 &nbsp;·&nbsp; FOURTH-YEAR CS STUDENT &nbsp;·&nbsp; 4000 / 5000 XP
+        </div>
+        <div class="hsb-track"><div class="hsb-fill" id="xpFill"></div></div>
+      </div>
+
+      <div class="hero-actions">
+        <button class="btn-ghost" id="heroResumeBtn">
+          <svg width="14" height="14" viewBox="0 0 14 14"><rect x="2" y="1" width="10" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="5" y1="5" x2="9" y2="5" stroke="currentColor" stroke-width="1.2"/><line x1="5" y1="7.5" x2="9" y2="7.5" stroke="currentColor" stroke-width="1.2"/><line x1="5" y1="10" x2="7" y2="10" stroke="currentColor" stroke-width="1.2"/></svg>
+          VIEW RESUME
+        </button>
+        <a href="#contact" class="btn-ghost">
+          <svg width="14" height="14" viewBox="0 0 14 14"><rect x="1" y="3" width="12" height="8" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><polyline points="1,3 7,8 13,3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          CONTACT
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="avatar-wrap">
+        <div class="av-frame">
+          <img src="assets/photos/MyPhoto.jpg" alt="Heart Conserva" class="av-img">
+          <div class="av-fallback">HC</div>
+          <div class="av-corner tl"></div>
+          <div class="av-corner tr"></div>
+          <div class="av-corner bl"></div>
+          <div class="av-corner br"></div>
+        </div>
+        <div class="av-hp-bar"><div class="av-hp-fill"></div></div>
+        <div class="av-tag">heartcnsrv &nbsp;·&nbsp; ONLINE</div>
+      </div>
+      <div class="hero-float-tag ft1">Java</div>
+      <div class="hero-float-tag ft2">Python</div>
+      <div class="hero-float-tag ft3">JS</div>
+      <div class="hero-float-tag ft4">Kotlin</div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <svg width="16" height="24" viewBox="0 0 16 24"><rect x="1" y="1" width="14" height="22" rx="7" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="7" r="2" fill="currentColor" class="scroll-dot-anim"/></svg>
+      <span>SCROLL</span>
+    </div>
+  </section>
+
+  <!-- ══════════════════ ABOUT ══════════════════ -->
+  <section id="about" class="s-about">
+    <div class="sec-head">
+      <div class="sh-tag">CHAPTER_01</div>
+      <h2 class="sh-title">ABOUT<span class="accent">_ME</span></h2>
+      <div class="sh-line"></div>
+    </div>
+
+    <div class="about-grid">
+
+      <div class="acard" data-reveal>
+        <div class="acard-label">// BIO</div>
+        <p class="acard-text">Computer Science student specializing in software development, web systems, and database-driven applications. Currently interning as a Software Developer at REO Philippines, building real-world features using JavaScript, HTML, CSS, and Oracle Database under Agile practices.</p>
+        <div class="acard-details">
+          <div class="ad-row">
+            <svg class="ad-icon" viewBox="0 0 16 16">
+              <path d="M8 1a5 5 0 0 1 5 5c0 3.5-5 9-5 9S3 9.5 3 6a5 5 0 0 1 5-5z" fill="none" stroke="currentColor" stroke-width="1.4"/>
+              <circle cx="8" cy="6" r="1.5" fill="currentColor"/>
+            </svg>
+            <span>Baguio City, Philippines</span>
+          </div>
+          <div class="ad-row">
+            <svg class="ad-icon" viewBox="0 0 16 16">
+              <path d="M2 13L8 3l6 10H2z" fill="none" stroke="currentColor" stroke-width="1.4"/>
+            </svg>
+              <span>BS Computer Science (Ongoing) @ Saint Louis University</span>
+          </div>
+            <div class="ad-row">
+              <svg class="ad-icon" viewBox="0 0 16 16">
+                <polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,11.5 3.5,15 5,9.5 1,6 6,6" fill="none" stroke="currentColor" stroke-width="1.4"/>
+              </svg>
+              <span>Specializing in Web Systems & Software Development</span>
+            </div>
+            <div class="ad-row">
+              <svg class="ad-icon" viewBox="0 0 16 16">
+                <rect x="1" y="4" width="14" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/>
+                <path d="M5 4V3a3 3 0 0 1 6 0v1" fill="none" stroke="currentColor" stroke-width="1.4"/>
+              </svg>
+              <span>Full Stack Developer @ REO Philippines</span>
+            </div>
+          </div>
+      </div>
+
+      <div class="acard" data-reveal>
+        <div class="acard-label">// INTERESTS</div>
+        <div class="interest-grid">
+          <span class="itag">Web Development</span>
+          <span class="itag">Software Engineering</span>
+          <span class="itag">Databases</span>
+          <span class="itag">REST APIs</span>
+          <span class="itag">AI &amp; Machine Learning</span>
+          <span class="itag">Mobile Development</span>
+          <span class="itag">UI/UX Design</span>
+          <span class="itag">Cloud Computing</span>
+          <span class="itag">Cybersecurity</span>
+          <span class="itag">Game Development</span>
+        </div>
+      </div>
+
+      <div class="acard" data-reveal>
+        <div class="acard-label">// ACHIEVEMENTS</div>
+        <div class="ach-list">
+          <div class="ach-item">
+            <svg class="ach-ico" viewBox="0 0 20 20"><path d="M10 1l2.5 5.5L18 7.5l-4 4 1 5.5L10 14l-5 3 1-5.5-4-4 5.5-1z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            <div><div class="ach-name">Dean's Lister</div><div class="ach-sub">Saint Louis University · 2023–Present</div></div>
+          </div>
+          <div class="ach-item">
+            <svg class="ach-ico" viewBox="0 0 20 20"><circle cx="10" cy="8" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6 13l-3 6h4l3-4 3 4h4l-3-6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            <div><div class="ach-name">Honor Student</div><div class="ach-sub">K–12 · 2012–2023</div></div>
+          </div>
+          <div class="ach-item">
+            <svg class="ach-ico" viewBox="0 0 20 20"><rect x="2" y="6" width="16" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7 6V5a3 3 0 0 1 6 0v1" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            <div><div class="ach-name">City Government of Baguio Scholar</div><div class="ach-sub">2023–Present</div></div>
+          </div>
+          <div class="ach-item">
+            <svg class="ach-ico" viewBox="0 0 20 20">
+              <circle cx="10" cy="6" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M4 18c0-4 12-4 12 0" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+
+            <div>
+              <div class="ach-name">Student Leadership & Governance</div>
+
+              <div class="ach-sub">
+                <strong>ICON</strong> — Business Manager (2026–2027)
+              </div>
+
+              <div class="ach-sub">
+                <strong>ICON</strong> — 3rd Year Computer Science Representative (2025–2026)
+              </div>
+
+              <div class="ach-sub">
+                <strong>Student Government</strong> — Secretary, President, Grade Representative (2015–2018)
+              </div>
+
+              <div class="ach-sub">
+                <strong>Girl Scouts of the Philippines</strong> — Secretary, Vice President, President, Treasurer (2014–2020)
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </div>
+
+
+    <!-- CERTIFICATIONS -->
+    <div class="cert-section" data-reveal>
+      <div class="cert-label">// CERTIFICATIONS</div>
+      <div class="cert-row">
+        <div class="cert-item">
+          <div class="cert-yr">2026</div>
+          <div class="cert-name">NextGen 2026 – 1st Runner-up</div>
+          <div class="cert-org">Archive: Centralized E-Sports Platform</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-yr">2026</div>
+          <div class="cert-name">Introduction to AI Literacy</div>
+          <div class="cert-org">Mapúa University · Responsible Use</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-yr">2025</div>
+          <div class="cert-name">AWS LLM League</div>
+          <div class="cert-org">National AI Student Challenge</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-yr">2024</div>
+          <div class="cert-name">DICT IIDB CAR</div>
+          <div class="cert-org">Digital Career Expo</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-yr">2023</div>
+          <div class="cert-name">Trend Micro</div>
+          <div class="cert-org">Cybersecurity Awareness</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-yr">2021</div>
+          <div class="cert-name">UC Seminar</div>
+          <div class="cert-org">People's Welfare</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-yr">2015</div>
+          <div class="cert-name">DataMex Institute</div>
+          <div class="cert-org">Computer Training</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ GRAPHICS & ART ══════════════════ -->
+  <section id="art" class="s-art">
+    <div class="sec-head">
+      <div class="sh-tag">CHAPTER_03</div>
+      <h2 class="sh-title">GRAPHICS <span class="accent">&amp; ART</span></h2>
+      <div class="sh-line"></div>
+    </div>
+    <div class="art-marquee" aria-label="Scrolling gallery of graphic design and art">
+      <div class="art-track">
+      <figure class="art-card">
+        <img src="assets/art/neureo-innovations.png" alt="Blue promotional poster for Neureo Innovations" loading="lazy" />
+        <figcaption><span class="art-category">PROMOTIONAL GRAPHIC</span><h3>Neureo Innovations</h3></figcaption>
+      </figure>
+      <figure class="art-card">
+        <img src="assets/art/maidens-10th-drink-reward.png" alt="Maiden's Cafe 10th order drink reward poster" loading="lazy" />
+        <figcaption><span class="art-category">SOCIAL MEDIA DESIGN</span><h3>Maiden's Cafe · 10th Order Reward</h3></figcaption>
+      </figure>
+      <figure class="art-card">
+        <img src="assets/art/maidens-cafe-logo.png" alt="Black Maiden's Cafe floral logo on a white background" loading="lazy" />
+        <figcaption><span class="art-category">BRAND IDENTITY</span><h3>Maiden's Cafe · Logo</h3></figcaption>
+      </figure>
+      <figure class="art-card">
+        <img src="assets/art/maidens-loyalty-card.png" alt="Maiden's Cafe loyalty card promotional poster" loading="lazy" />
+        <figcaption><span class="art-category">PRINT &amp; PROMOTION</span><h3>Maiden's Cafe · Loyalty Card</h3></figcaption>
+      </figure>
+      <figure class="art-card">
+        <img src="assets/art/van-rental-poster.png" alt="Vintage inspired van rental poster design" loading="lazy" />
+        <figcaption><span class="art-category">POSTER DESIGN</span><h3>The Wheels on the Van · For Hire</h3></figcaption>
+      </figure>
+      <figure class="art-card">
+        <img src="assets/art/finn-and-jake-pixel-art.png" alt="Pixel art sticker of Finn and Jake from Adventure Time" loading="lazy" />
+        <figcaption><span class="art-category">PIXEL ART</span><h3>Finn &amp; Jake</h3></figcaption>
+      </figure>
+      <figure class="art-card">
+        <img src="assets/art/bubblegum-and-marceline-pixel-art.png" alt="Pixel art sticker of Princess Bubblegum and Marceline" loading="lazy" />
+        <figcaption><span class="art-category">PIXEL ART</span><h3>Princess Bubblegum &amp; Marceline</h3></figcaption>
+      </figure>
+      <figure class="art-card" aria-hidden="true">
+        <img src="assets/art/neureo-innovations.png" alt="" loading="lazy" />
+        <figcaption><span class="art-category">PROMOTIONAL GRAPHIC</span><h3>Neureo Innovations</h3></figcaption>
+      </figure>
+      <figure class="art-card" aria-hidden="true">
+        <img src="assets/art/maidens-10th-drink-reward.png" alt="" loading="lazy" />
+        <figcaption><span class="art-category">SOCIAL MEDIA DESIGN</span><h3>Maiden's Cafe · 10th Order Reward</h3></figcaption>
+      </figure>
+      <figure class="art-card" aria-hidden="true">
+        <img src="assets/art/maidens-cafe-logo.png" alt="" loading="lazy" />
+        <figcaption><span class="art-category">BRAND IDENTITY</span><h3>Maiden's Cafe · Logo</h3></figcaption>
+      </figure>
+      <figure class="art-card" aria-hidden="true">
+        <img src="assets/art/maidens-loyalty-card.png" alt="" loading="lazy" />
+        <figcaption><span class="art-category">PRINT &amp; PROMOTION</span><h3>Maiden's Cafe · Loyalty Card</h3></figcaption>
+      </figure>
+      <figure class="art-card" aria-hidden="true">
+        <img src="assets/art/van-rental-poster.png" alt="" loading="lazy" />
+        <figcaption><span class="art-category">POSTER DESIGN</span><h3>The Wheels on the Van · For Hire</h3></figcaption>
+      </figure>
+      <figure class="art-card" aria-hidden="true">
+        <img src="assets/art/finn-and-jake-pixel-art.png" alt="" loading="lazy" />
+        <figcaption><span class="art-category">PIXEL ART</span><h3>Finn &amp; Jake</h3></figcaption>
+      </figure>
+      <figure class="art-card" aria-hidden="true">
+        <img src="assets/art/bubblegum-and-marceline-pixel-art.png" alt="" loading="lazy" />
+        <figcaption><span class="art-category">PIXEL ART</span><h3>Princess Bubblegum &amp; Marceline</h3></figcaption>
+      </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ PUBLICATIONS ══════════════════ -->
+  <section id="publications" class="s-projects">
+    <div class="sec-head">
+      <div class="sh-tag">CHAPTER_03</div>
+      <h2 class="sh-title">PUBLICATION<span class="accent"></span></h2>
+      <div class="sh-line"></div>
+    </div>
+    <div class="proj-grid">
+      <article class="pcard" data-reveal>
+        <div class="pcard-badge side">RESEARCH</div>
+        <div class="pcard-icon-area" style="background:linear-gradient(135deg,#1c1710,#342a16)">
+          <svg width="40" height="40" viewBox="0 0 40 40" class="pcard-svg"><path d="M7 32h27M10 29V18h5v11m4 0V10h5v19m4 0V14h5v15" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.7"/><path d="m9 14 8-5 6 3 9-7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">Archipelago of Inflation</h3>
+          <div class="pcard-tags"><span>Research</span><span>Data Analysis</span><span>2026</span></div>
+          <p class="pcard-desc">A spatio-temporal analysis of Philippine food commodity prices using World Food Programme data, examining seasonal patterns, long-term trends, and sudden price shocks.</p>
+          <a href="https://www.researchgate.net/publication/405093385_Archipelago_of_Inflation_Spatio-Temporal_Analysis_on_Commodity_Prices_of_The_Philippines_2019-2026?channel=doi&amp;linkId=6a0ee68639e45e75a6dd4160&amp;showFulltext=true" target="_blank" rel="noopener noreferrer" class="pcard-link">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H4M11 1v7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            VIEW PUBLICATION
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ══════════════════ PROJECTS ══════════════════ -->
+  <section id="projects" class="s-projects">
+    <div class="sec-head">
+      <div class="sh-tag">CHAPTER_03</div>
+      <h2 class="sh-title">PROJECT<span class="accent">_VAULT</span></h2>
+      <div class="sh-line"></div>
+    </div>
+
+    <div class="proj-filters">
+      <button class="pf-btn active" data-f="all">ALL</button>
+      <button class="pf-btn" data-f="main">MAIN QUESTS</button>
+      <button class="pf-btn" data-f="side">SIDE QUESTS</button>
+      <button class="pf-btn" data-f="mini">MINI QUESTS</button>
+    </div>
+
+    <div class="proj-grid" id="projGrid">
+
+      <!-- MAIN -->
+      <div class="pcard" data-tier="main" data-reveal>
+        <div class="pcard-badge main">MAIN</div>
+        <div class="pcard-icon-area" style="background:linear-gradient(135deg,#0d0d1a,#1a0d2e)">
+          <svg width="40" height="40" viewBox="0 0 40 40" class="pcard-svg"><rect x="4" y="4" width="32" height="32" rx="4" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/><rect x="10" y="10" width="8" height="20" rx="2" fill="currentColor" opacity="0.7"/><rect x="22" y="16" width="8" height="14" rx="2" fill="currentColor" opacity="0.5"/></svg>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">Booking System Mobile App</h3>
+          <div class="pcard-tags"><span>Kotlin</span><span>Android</span><span>Mobile</span></div>
+          <p class="pcard-desc">Full mobile booking application for Android with user and admin interfaces, built in Kotlin.</p>
+          <a href="https://github.com/heartcnsrv/BookingSystemMobileApp" target="_blank" class="pcard-link">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H4M11 1v7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            VIEW ON GITHUB
+          </a>
+        </div>
+      </div>
+
+      <div class="pcard" data-tier="main" data-reveal>
+        <div class="pcard-badge main">MAIN</div>
+        <div class="pcard-icon-area" style="background:linear-gradient(135deg,#101a20,#18313a)">
+          <svg width="40" height="40" viewBox="0 0 40 40" class="pcard-svg"><rect x="5" y="7" width="30" height="26" rx="3" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.6"/><path d="M12 14h16M12 20h10M12 26h13" stroke="currentColor" stroke-width="1.5" opacity="0.8"/><circle cx="29" cy="26" r="2" fill="currentColor"/></svg>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">Archive</h3>
+          <div class="pcard-tags"><span>Esports</span><span>Community</span><span>AI</span></div>
+          <p class="pcard-desc">An all-in-one esports platform connecting gaming stats, game discovery, career roadmaps, tournaments, mentors, parties, and chat. Its mAIggi assistant uses player activity to suggest improvements and opportunities. Shaped by conversations with gaming communities in the Philippines and abroad, Archive connects play with learning and career growth.</p>
+          <a href="https://archive-aimready.netlify.app/frontend/html/start" target="_blank" rel="noopener noreferrer" class="pcard-link">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H4M11 1v7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            VIEW ARCHIVE
+          </a>
+        </div>
+      </div>
+
+      <div class="pcard" data-tier="main" data-reveal>
+        <div class="pcard-badge main">MAIN</div>
+        <div class="pcard-icon-area" style="background:linear-gradient(135deg,#1b101c,#35203a)">
+          <svg width="40" height="40" viewBox="0 0 40 40" class="pcard-svg"><path d="M20 5 32 12v16l-12 7L8 28V12z" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.6"/><path d="m14 16 6-4 6 4-6 4zm0 0v8l6 4 6-4v-8m-12 8 6-4 6 4" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.8"/></svg>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">RiftJournal</h3>
+          <div class="pcard-tags"><span>Web App</span><span>Riftbound</span><span>TCG</span></div>
+          <p class="pcard-desc">A web-based Riftbound TCG companion designed to bring card collection and discovery together, with a team builder for preparing competitive decks and lineups.</p>
+          <a href="https://riftjournal.netlify.app/#teams" target="_blank" rel="noopener noreferrer" class="pcard-link">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H4M11 1v7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            OPEN RIFTJOURNAL
+          </a>
+        </div>
+      </div>
+
+<div class="pcard" data-tier="main" data-reveal>
+        <div class="pcard-badge main">MAIN</div>
+        <div class="pcard-icon-area" style="background:linear-gradient(135deg,#0d1a0d,#0d2e1a)">
+          <svg width="40" height="40" viewBox="0 0 40 40" class="pcard-svg"><rect x="4" y="8" width="32" height="24" rx="3" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/><circle cx="14" cy="20" r="6" fill="currentColor" opacity="0.5"/><polygon points="12,17 12,23 18,20" fill="currentColor" opacity="0.9"/><line x1="24" y1="16" x2="32" y2="16" stroke="currentColor" stroke-width="1.3" opacity="0.5"/><line x1="24" y1="20" x2="32" y2="20" stroke="currentColor" stroke-width="1.3" opacity="0.5"/><line x1="24" y1="24" x2="28" y2="24" stroke="currentColor" stroke-width="1.3" opacity="0.5"/></svg>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">Movie Booking System</h3>
+          <div class="pcard-tags"><span>Java</span><span>RMI</span><span>XML</span><span>JSON</span></div>
+          <p class="pcard-desc">Distributed movie ticket booking system using Java RMI for remote method invocation and seat management.</p>
+          <a href="https://github.com/heartcnsrv/MovieBookingSystem" target="_blank" class="pcard-link">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H4M11 1v7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            VIEW ON GITHUB
+          </a>
+        </div>
+      </div>
+
+      <div class="pcard" data-tier="main" data-reveal>
+        <div class="pcard-badge main">MAIN</div>
+        <div class="pcard-icon-area" style="background:linear-gradient(135deg,#1a0d0d,#2e1a0d)">
+          <svg width="40" height="40" viewBox="0 0 40 40" class="pcard-svg"><circle cx="20" cy="20" r="14" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/><path d="M20 6 L20 34 M6 20 L34 20" stroke="currentColor" stroke-width="1" opacity="0.3"/><circle cx="20" cy="20" r="4" fill="currentColor" opacity="0.8"/><path d="M14 14 L26 26 M26 14 L14 26" stroke="currentColor" stroke-width="1" opacity="0.3"/></svg>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">Detourist Campus Navigation</h3>
+          <div class="pcard-tags"><span>JavaScript</span><span>PHP</span><span>Node.js</span><span>MySQL</span></div>
+          <p class="pcard-desc">Interactive campus navigation web app with optimized routes, responsive UI, and real-time database queries. Improved wayfinding efficiency by 35%.</p>
+          <a href="https://github.com/heartcnsrv/Detourist-Campus-Navigation-App" target="_blank" class="pcard-link">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H4M11 1v7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            VIEW ON GITHUB
+          </a>
+        </div>
+      </div>
+
+      <div class="pcard" data-tier="main" data-reveal>
+        <div class="pcard-badge main">MAIN</div>
+        <div class="pcard-icon-area" style="background:linear-gradient(135deg,#0d1a2e,#0d0d2e)">
+          <svg width="40" height="40" viewBox="0 0 40 40" class="pcard-svg"><rect x="4" y="4" width="32" height="26" rx="3" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/><line x1="4" y1="12" x2="36" y2="12" stroke="currentColor" stroke-width="1" opacity="0.4"/><rect x="8" y="16" width="6" height="10" rx="1" fill="currentColor" opacity="0.6"/><rect x="17" y="19" width="6" height="7" rx="1" fill="currentColor" opacity="0.4"/><rect x="26" y="14" width="6" height="12" rx="1" fill="currentColor" opacity="0.5"/><line x1="12" y1="30" x2="28" y2="30" stroke="currentColor" stroke-width="1" opacity="0.3"/><rect x="14" y="30" width="12" height="4" rx="1" fill="currentColor" opacity="0.3"/></svg>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">Louver Web Application</h3>
+          <div class="pcard-tags"><span>JavaScript</span><span>HTML</span><span>CSS</span></div>
+          <p class="pcard-desc">Full-featured web application built with vanilla JavaScript, modern CSS, and responsive design principles.</p>
+          <a href="https://github.com/heartcnsrv/LouverWebApplication" target="_blank" class="pcard-link">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H4M11 1v7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            VIEW ON GITHUB
+          </a>
+        </div>
+      </div>
+
+      <div class="pcard" data-tier="main" data-reveal>
+        <div class="pcard-badge main">MAIN</div>
+        <div class="pcard-icon-area" style="background:linear-gradient(135deg,#1a0d1a,#2e0d2e)">
+          <svg width="40" height="40" viewBox="0 0 40 40" class="pcard-svg"><polygon points="20,4 36,36 4,36" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/><line x1="20" y1="14" x2="20" y2="26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="30" r="2" fill="currentColor"/></svg>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">ThinkFast Game</h3>
+          <div class="pcard-tags"><span>C++</span><span>Game Logic</span></div>
+          <p class="pcard-desc">Fast-paced reflex and mental speed game built in C++, testing cognitive performance under time pressure.</p>
+          <a href="https://github.com/heartcnsrv/ThinkFastGame" target="_blank" class="pcard-link">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H4M11 1v7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            VIEW ON GITHUB
+          </a>
+        </div>
+      </div>
+
+      <div class="pcard" data-tier="main" data-reveal>
+        <div class="pcard-badge main">MAIN</div>
+        <div class="pcard-icon-area" style="background:linear-gradient(135deg,#0d1a1a,#0d2e2e)">
+          <svg width="40" height="40" viewBox="0 0 40 40" class="pcard-svg"><rect x="6" y="8" width="28" height="6" rx="1" fill="currentColor" opacity="0.5"/><rect x="6" y="18" width="28" height="6" rx="1" fill="currentColor" opacity="0.4"/><rect x="6" y="28" width="16" height="6" rx="1" fill="currentColor" opacity="0.3"/></svg>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">Word Game Java</h3>
+          <div class="pcard-tags"><span>Java</span><span>CORBA</span><span>SQL</span></div>
+          <p class="pcard-desc">Multiplayer word game using CORBA distributed architecture with SQL server backend and admin panel.</p>
+          <a href="https://github.com/heartcnsrv/WordGameJava" target="_blank" class="pcard-link">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H4M11 1v7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            VIEW ON GITHUB
+          </a>
+        </div>
+      </div>
+
+      <div class="pcard" data-tier="main" data-reveal>
+        <div class="pcard-badge main">MAIN</div>
+        <div class="pcard-icon-area" style="background:linear-gradient(135deg,#1a1a0d,#2e2e0d)">
+          <svg width="40" height="40" viewBox="0 0 40 40" class="pcard-svg"><path d="M10 30 Q10 10 20 10 Q30 10 30 30" fill="none" stroke="currentColor" stroke-width="2" opacity="0.5"/><circle cx="20" cy="10" r="4" fill="currentColor" opacity="0.6"/><line x1="10" y1="30" x2="30" y2="30" stroke="currentColor" stroke-width="2" opacity="0.5"/></svg>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">Word Game Python</h3>
+          <div class="pcard-tags"><span>Python</span><span>CORBA</span><span>Client</span></div>
+          <p class="pcard-desc">Python CORBA client component that connects to the Java-based multiplayer word game server.</p>
+          <a href="https://github.com/heartcnsrv/WordGamePython" target="_blank" class="pcard-link">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H4M11 1v7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            VIEW ON GITHUB
+          </a>
+        </div>
+      </div>
+
+      <!-- SIDE -->
+      <div class="pcard" data-tier="side" data-reveal>
+        <div class="pcard-badge side">SIDE</div>
+        <div class="pcard-icon-area" style="background:linear-gradient(135deg,#1a1a1a,#252525)">
+          <svg width="40" height="40" viewBox="0 0 40 40" class="pcard-svg"><rect x="6" y="6" width="28" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/><path d="M14 20 L20 12 L26 20 L20 28 Z" fill="currentColor" opacity="0.6"/></svg>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">Hephaestus</h3>
+          <div class="pcard-tags"><span>Java</span><span>Build Tools</span></div>
+          <p class="pcard-desc">Build automation and tooling system project, named after the Greek forge god.</p>
+          <a href="https://github.com/heartcnsrv/Hephaestus" target="_blank" class="pcard-link">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H4M11 1v7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            VIEW ON GITHUB
+          </a>
+        </div>
+      </div>
+
+      <div class="pcard" data-tier="side" data-reveal>
+        <div class="pcard-badge side">SIDE</div>
+        <div class="pcard-icon-area" style="background:linear-gradient(135deg,#0d1a0d,#142e14)">
+          <svg width="40" height="40" viewBox="0 0 40 40" class="pcard-svg"><circle cx="20" cy="14" r="7" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/><circle cx="12" cy="28" r="5" fill="none" stroke="currentColor" stroke-width="1.3" opacity="0.4"/><circle cx="28" cy="28" r="5" fill="none" stroke="currentColor" stroke-width="1.3" opacity="0.4"/></svg>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">Pet Website</h3>
+          <div class="pcard-tags"><span>HTML</span><span>CSS</span></div>
+          <p class="pcard-desc">Dedicated pet information website with gallery, pages, and modern HTML/CSS layout.</p>
+          <a href="https://github.com/heartcnsrv/PetWeb" target="_blank" class="pcard-link">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H4M11 1v7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            VIEW ON GITHUB
+          </a>
+        </div>
+      </div>
+
+      <div class="pcard" data-tier="side" data-reveal>
+        <div class="pcard-badge side">SIDE</div>
+        <div class="pcard-icon-area" style="background:linear-gradient(135deg,#1a0d1a,#2e142e)">
+          <svg width="40" height="40" viewBox="0 0 40 40" class="pcard-svg"><circle cx="20" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/><path d="M8 34 C8 24 32 24 32 34" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/><circle cx="10" cy="20" r="4" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.3"/><circle cx="30" cy="20" r="4" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.3"/></svg>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">Volunteer Monitoring System</h3>
+          <div class="pcard-tags"><span>Java</span><span>SQL</span><span>Swing</span></div>
+          <p class="pcard-desc">GUI-based volunteer management system with SQL backend and Java Swing interface.</p>
+          <a href="https://github.com/heartcnsrv/VolunteerMonitoringSystem" target="_blank" class="pcard-link">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H4M11 1v7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            VIEW ON GITHUB
+          </a>
+        </div>
+      </div>
+
+      <div class="pcard" data-tier="side" data-reveal>
+        <div class="pcard-badge side">SIDE</div>
+        <div class="pcard-icon-area" style="background:linear-gradient(135deg,#0d1a1a,#0d2e2e)">
+          <svg width="40" height="40" viewBox="0 0 40 40" class="pcard-svg"><rect x="8" y="14" width="24" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/><path d="M12 14 L12 10 Q20 6 28 10 L28 14" fill="none" stroke="currentColor" stroke-width="1.3" opacity="0.5"/><circle cx="20" cy="22" r="4" fill="currentColor" opacity="0.4"/></svg>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">Vehicle Rental System</h3>
+          <div class="pcard-tags"><span>Java</span><span>RMI</span><span>XML</span></div>
+          <p class="pcard-desc">Distributed vehicle rental management system built with Java RMI and XML-based data persistence.</p>
+          <a href="https://github.com/heartcnsrv/VehicleRentalSystem" target="_blank" class="pcard-link">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H4M11 1v7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            VIEW ON GITHUB
+          </a>
+        </div>
+      </div>
+
+      <div class="pcard" data-tier="side" data-reveal>
+        <div class="pcard-badge side">SIDE</div>
+        <div class="pcard-icon-area" style="background:linear-gradient(135deg,#0d0d1a,#1a1a0d)">
+          <svg width="40" height="40" viewBox="0 0 40 40" class="pcard-svg"><path d="M8 28 L8 16 Q8 8 16 8 L24 8 Q32 8 32 16 L32 28" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/><line x1="6" y1="28" x2="34" y2="28" stroke="currentColor" stroke-width="2" opacity="0.5"/><rect x="16" y="18" width="8" height="8" rx="1" fill="currentColor" opacity="0.4"/></svg>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">Flight Departure Management</h3>
+          <div class="pcard-tags"><span>Java</span><span>RMI</span><span>OOP</span></div>
+          <p class="pcard-desc">Flight departure management system using Java RMI distributed computing and OOP design patterns.</p>
+          <a href="https://github.com/heartcnsrv/FlightDepartureManagementSystem" target="_blank" class="pcard-link">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H4M11 1v7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            VIEW ON GITHUB
+          </a>
+        </div>
+      </div>
+
+      <!-- MINI -->
+      <div class="pcard" data-tier="mini" data-reveal>
+        <div class="pcard-badge mini">MINI</div>
+        <div class="pcard-icon-area" style="background:linear-gradient(135deg,#141414,#1e1e1e)">
+          <svg width="40" height="40" viewBox="0 0 40 40" class="pcard-svg"><path d="M10 28 L16 14 L22 22 L26 18 L32 28 Z" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/></svg>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">CFG Parser</h3>
+          <div class="pcard-tags"><span>Python</span><span>Algorithms</span></div>
+          <p class="pcard-desc">Context-Free Grammar parser implementing CYK and Earley parsing algorithms.</p>
+          <a href="https://github.com/heartcnsrv/CFG-Parser" target="_blank" class="pcard-link">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H4M11 1v7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            VIEW ON GITHUB
+          </a>
+        </div>
+      </div>
+
+      <div class="pcard" data-tier="mini" data-reveal>
+        <div class="pcard-badge mini">MINI</div>
+        <div class="pcard-icon-area" style="background:linear-gradient(135deg,#141414,#1e1e1e)">
+          <svg width="40" height="40" viewBox="0 0 40 40" class="pcard-svg"><rect x="8" y="8" width="24" height="24" rx="2" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/><path d="M8 16 L32 16 M8 24 L32 24" stroke="currentColor" stroke-width="1" opacity="0.3"/><path d="M16 8 L16 32 M24 8 L24 32" stroke="currentColor" stroke-width="1" opacity="0.3"/></svg>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">Apache Ant Build System</h3>
+          <div class="pcard-tags"><span>Java</span><span>Ant</span><span>Build</span></div>
+          <p class="pcard-desc">Build automation project using Apache Ant for Java project lifecycle management.</p>
+          <a href="https://github.com/heartcnsrv/Apache-Ant-Build-System" target="_blank" class="pcard-link">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H4M11 1v7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            VIEW ON GITHUB
+          </a>
+        </div>
+      </div>
+
+      <div class="pcard" data-tier="mini" data-reveal>
+        <div class="pcard-badge mini">MINI</div>
+        <div class="pcard-icon-area" style="background:linear-gradient(135deg,#141414,#1e1e1e)">
+          <svg width="40" height="40" viewBox="0 0 40 40" class="pcard-svg"><rect x="10" y="4" width="20" height="32" rx="3" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/><line x1="14" y1="12" x2="26" y2="12" stroke="currentColor" stroke-width="1.2" opacity="0.4"/><line x1="14" y1="18" x2="26" y2="18" stroke="currentColor" stroke-width="1.2" opacity="0.4"/><line x1="14" y1="24" x2="20" y2="24" stroke="currentColor" stroke-width="1.2" opacity="0.4"/></svg>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">Attendance Tracker Console</h3>
+          <div class="pcard-tags"><span>Java</span><span>Console</span><span>OOP</span></div>
+          <p class="pcard-desc">Console-based attendance tracking with OOP architecture.</p>
+          <a href="https://github.com/heartcnsrv/AttendanceTracker-Console" target="_blank" class="pcard-link">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H4M11 1v7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            VIEW ON GITHUB
+          </a>
+        </div>
+      </div>
+
+      <div class="pcard" data-tier="mini" data-reveal>
+        <div class="pcard-badge mini">MINI</div>
+        <div class="pcard-icon-area" style="background:linear-gradient(135deg,#141414,#1e1e1e)">
+          <svg width="40" height="40" viewBox="0 0 40 40" class="pcard-svg"><rect x="10" y="4" width="20" height="32" rx="3" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/><rect x="14" y="14" width="12" height="8" rx="1" fill="currentColor" opacity="0.3"/></svg>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">Kotlin Demo Artifacts</h3>
+          <div class="pcard-tags"><span>Kotlin</span><span>Android</span></div>
+          <p class="pcard-desc">Demo artifacts and learning exercises exploring Kotlin language features for Android.</p>
+          <a href="https://github.com/heartcnsrv/Kotlin_DemoArtifacts" target="_blank" class="pcard-link">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H4M11 1v7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            VIEW ON GITHUB
+          </a>
+        </div>
+      </div>
+
+      <div class="pcard" data-tier="mini" data-reveal>
+        <div class="pcard-badge mini">MINI</div>
+        <div class="pcard-icon-area" style="background:linear-gradient(135deg,#141414,#1e1e1e)">
+          <svg width="40" height="40" viewBox="0 0 40 40" class="pcard-svg"><rect x="6" y="6" width="12" height="12" rx="1" fill="currentColor" opacity="0.3"/><rect x="22" y="6" width="12" height="12" rx="1" fill="currentColor" opacity="0.3"/><rect x="6" y="22" width="12" height="12" rx="1" fill="currentColor" opacity="0.2"/><rect x="22" y="22" width="12" height="12" rx="1" fill="currentColor" opacity="0.2"/></svg>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">Year Projects Collection</h3>
+          <div class="pcard-tags"><span>Java</span><span>Math</span><span>Logic</span></div>
+          <p class="pcard-desc">Coursework projects from Year 1, Year 2, and Year 3 CS studies — foundational exercises and algorithms.</p>
+          <div class="pcard-multi-links">
+            <a href="https://github.com/heartcnsrv/FirstYear-Projects" target="_blank" class="pcard-link-sm">Year 1</a>
+            <a href="https://github.com/heartcnsrv/SecondYear-Projects" target="_blank" class="pcard-link-sm">Year 2</a>
+            <a href="https://github.com/heartcnsrv/ThirdYearProjects" target="_blank" class="pcard-link-sm">Year 3</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════ CONTACT ══════════════════ -->
+  <section id="contact">
+    <div class="sec-head">
+      <div class="sh-tag">CHAPTER_04</div>
+      <h2 class="sh-title">SEND_MESSAGE<span class="accent">_NOW</span></h2>
+      <div class="sh-line"></div>
+    </div>
+
+  <div class="contact-container">
+    <div class="contact-grid reveal">
+
+      <a href="mailto:heartconserva@gmail.com" class="contact-card">
+        <div class="contact-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </div>
+        <div class="contact-card-label">Email</div>
+        <div class="contact-card-value">heartconserva@gmail.com</div>
+      </a>
+
+      <a href="tel:+639610428207" class="contact-card">
+        <div class="contact-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        </div>
+        <div class="contact-card-label">Phone</div>
+        <div class="contact-card-value">+63 961 0428 207</div>
+      </a>
+
+      <a href="https://github.com/heartcnsrv" target="_blank" class="contact-card">
+        <div class="contact-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+        </div>
+        <div class="contact-card-label">GitHub</div>
+        <div class="contact-card-value">@heartcnsrv</div>
+      </a>
+
+      <a href="https://www.linkedin.com/in/heart-conserva-8a741b2a0/" target="_blank" class="contact-card">
+        <div class="contact-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        </div>
+        <div class="contact-card-label">LinkedIn</div>
+        <div class="contact-card-value">heart-conserva</div>
+      </a>
+
+      <a href="https://www.facebook.com/profile.php?id=61550536131789" target="_blank" class="contact-card">
+        <div class="contact-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
+        </div>
+        <div class="contact-card-label">Facebook</div>
+        <div class="contact-card-value">Heart Conserva</div>
+      </a>
+
+      <div class="contact-card" style="cursor:default;">
+        <div class="contact-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        <div class="contact-card-label">Location</div>
+        <div class="contact-card-value">Baguio City, Philippines</div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;" class="reveal">
+      <button class="btn-solid" id="contactResumeBtn">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/>
+        </svg>
+        VIEW_FULL_RESUME
+      </button>
+    </div>
+
+  </div>
+</section>
+
+  <!-- ══════════════════ FOOTER ══════════════════ -->
+  <footer class="site-footer">
+    <div class="sf-inner">
+      <span class="sf-logo"><span class="nb-bracket">[</span>HC<span class="nb-bracket">]</span></span>
+      <span class="sf-copy">&copy; 2025 Heart Bhea J. Conserva &nbsp;&middot;&nbsp; All rights reserved.</span>
+      <span class="sf-note">Baguio City, PH</span>
+    </div>
+  </footer>
+
+  <!-- ══════════════════ RESUME MODAL ══════════════════ -->
+  <div class="modal-overlay" id="resumeModal">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose">
+        <svg width="18" height="18" viewBox="0 0 18 18"><line x1="2" y1="2" x2="16" y2="16" stroke="currentColor" stroke-width="2"/><line x1="16" y1="2" x2="2" y2="16" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+      <div class="resume-doc">
+        <div class="resume-header">
+          <div class="rh-name">Heart Bhea J. Conserva</div>
+          <div class="rh-contact">
+            Baguio City, Benguet, Philippines &nbsp;|&nbsp; +63 961 0428 207 &nbsp;|&nbsp;
+            <a href="mailto:heartconserva@gmail.com">heartconserva@gmail.com</a> &nbsp;|&nbsp;
+            <a href="https://heartconserva-portfolio.netlify.app/" target="_blank" rel="noopener noreferrer">Portfolio</a> &nbsp;|&nbsp; <a href="https://github.com/heartcnsrv" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+
+        <div class="resume-section">
+          <div class="rs-title">RELEVANT EXPERIENCE</div>
+          <div class="rs-item">
+            <div class="rsi-top"><span class="rsi-role">Part-Time – Full Stack Developer</span><span class="rsi-date">Aug 2025 – Present</span></div>
+            <div class="rsi-org">REO Philippines, Quiapo, Metro Manila | Remote/Online</div>
+            <ul class="rsi-bullets">
+              <li>Developed full-stack applications using React, JavaScript, Oracle APEX, and Oracle Database.</li>
+              <li>Built business solutions that improved workflows, data management, and internal processes.</li>
+            </ul>
+          </div>
+          <div class="rs-item">
+            <div class="rsi-top"><span class="rsi-role">Internship – Junior Full Stack Developer</span><span class="rsi-date">Aug 2025 – Jul 2026</span></div>
+            <div class="rsi-org">REO Philippines, Quiapo, Metro Manila | Remote/Online</div>
+            <ul class="rsi-bullets">
+              <li>Developed web applications using JavaScript, HTML, CSS, React, Oracle APEX, and Oracle Database.</li>
+              <li>Fixed system issues and supported code reviews and testing to improve application reliability.</li>
+            </ul>
+          </div>
+          <div class="rs-item">
+            <div class="rsi-top"><span class="rsi-role">Technical &amp; Marketing Associate</span><span class="rsi-date">Dec 2022 – Dec 2025</span></div>
+            <div class="rsi-org">Maiden's Cafe, Upper Pias, Baguio City | Hybrid</div>
+            <ul class="rsi-bullets">
+              <li>Developed and maintained the café's website and managed its social media platforms, creating promotional graphics using Canva.</li>
+              <li>Increased online engagement by ~15% and produced 20+ marketing graphics.</li>
+            </ul>
+          </div>
+          <div class="rs-item">
+            <div class="rsi-top"><span class="rsi-role">Freelance Academic Assistant</span><span class="rsi-date">Aug 2020 – May 2024</span></div>
+            <div class="rsi-org">Independent Freelance Work – Remote/Online</div>
+            <ul class="rsi-bullets">
+              <li>Provided programming and research support in Java, Python, and C++, assisting students with debugging and basic UI design.</li>
+              <li>Supported 15+ students and reviewed 30+ programming submissions.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resume-section">
+          <div class="rs-title">PROJECTS</div>
+          <div class="rs-item">
+          <div class="rsi-top">
+          <span class="rsi-role">REO-GotWork System (Workforce Management Web Application)</span>
+          </div>
+
+          <ul class="rsi-bullets">
+          <li>Developed onboarding, off-boarding, attendance, and leave management modules using Oracle APEX and Oracle Database.</li>
+
+          <li>Centralized HR processes to improve employee records, attendance tracking, and leave management.</li>
+          </ul>
+          </div>
+        </div>
+
+        <div class="resume-section">
+          <div class="rs-title">TECHNICAL SKILLS</div>
+          <div class="rs-skills-line">Java &nbsp;|&nbsp; Python &nbsp;|&nbsp; JavaScript &nbsp;|&nbsp; Kotlin &nbsp;|&nbsp; HTML &nbsp;|&nbsp; CSS &nbsp;|&nbsp; Oracle &nbsp;|&nbsp; MySQL &nbsp;|&nbsp; MongoDB &nbsp;|&nbsp; Android Development &nbsp;|&nbsp; REST APIs &nbsp;|&nbsp; Git &nbsp;|&nbsp; Apache Ant &nbsp;|&nbsp; Unit Testing &nbsp;|&nbsp; Data Cleaning &nbsp;|&nbsp; Basic AI/ML</div>
+        </div>
+
+        <div class="resume-section">
+          <div class="rs-title">CERTIFICATIONS</div>
+          <ul class="rsi-bullets rsi-certifications">
+            <li><span>NextGen 2026 – 1st Runner-up, Archive: Centralized E-Sports Platform</span><span class="rsi-date">2025</span></li>
+            <li><span>Mapúa University – Introduction to AI Literacy and Responsible Use</span><span class="rsi-date">2026</span></li>
+            <li><span>AWS LLM League – National AI Student Challenge, Certificate of Participation</span><span class="rsi-date">2025</span></li>
+            <li><span>DICT IIDB CAR – Digital Career Expo, Certificate of Participation</span><span class="rsi-date">2024</span></li>
+            <li><span>Trend Micro – Cybersecurity Awareness, Certificate of Participation</span><span class="rsi-date">2023</span></li>
+            <li><span>University of the Cordilleras – People's Welfare Seminar, Certificate of Participation</span><span class="rsi-date">2021</span></li>
+            <li><span>DataMex Institute of Computer Training – Computer Training, Certificate of Completion</span><span class="rsi-date">2015</span></li>
+          </ul>
+        </div>
+
+        <div class="resume-section">
+          <div class="rs-title">EDUCATION</div>
+          <div class="rs-item">
+            <div class="rsi-top"><span class="rsi-role">Bachelor of Science in Computer Science (Ongoing)</span><span class="rsi-date">Aug 2023 – Present</span></div>
+            <div class="rsi-org">Saint Louis University, Baguio City, Benguet, Philippines</div>
+            <ul class="rsi-bullets">
+              <li>Scholarship: City Government of Baguio Scholar</li>
+              <li>Honors: Consistent Dean's Lister</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
